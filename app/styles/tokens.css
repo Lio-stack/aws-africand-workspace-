@@ -1,0 +1,70 @@
+/*
+ * AWS — Tokens de design (source unique CSS).
+ * Voir docs/design-system.md et docs/motion-design.md.
+ * Les valeurs marquées PROVISOIRE seront remplacées par les variables Figma.
+ * Les tokens motion sont dupliqués dans lib/motion/tokens.ts (test de parité Vitest).
+ */
+
+:root {
+  /* Marque */
+  --aws-navy-900: #0f2a44; /* bleu nuit, accent principal */
+  --aws-navy-700: #1b4167; /* PROVISOIRE : survol / états */
+  --aws-gold-500: #b08d57; /* PROVISOIRE : or sobre, décoratif uniquement (pas de texte) */
+  --aws-gold-700: #7a5f35; /* PROVISOIRE : or pour texte, contraste à vérifier */
+
+  /* Neutres slate (valeurs Tailwind v4) */
+  --aws-slate-50: oklch(0.984 0.003 247.858);
+  --aws-slate-100: oklch(0.968 0.007 247.896);
+  --aws-slate-200: oklch(0.929 0.013 255.508);
+  --aws-slate-300: oklch(0.869 0.022 252.894);
+  --aws-slate-400: oklch(0.704 0.04 256.788);
+  --aws-slate-500: oklch(0.554 0.046 257.417);
+  --aws-slate-600: oklch(0.446 0.043 257.281);
+  --aws-slate-700: oklch(0.372 0.044 257.287);
+  --aws-slate-900: oklch(0.208 0.042 265.755);
+  --aws-slate-950: oklch(0.129 0.042 264.695);
+
+  /* Sémantique d'état */
+  --success: oklch(0.527 0.154 150.069);
+  --success-foreground: oklch(0.985 0 0);
+  --warning: oklch(0.666 0.179 58.318);
+  --warning-foreground: oklch(0.205 0 0);
+
+  /* Motion — durées */
+  --duration-instant: 100ms;
+  --duration-fast: 150ms;
+  --duration-base: 220ms;
+  --duration-slow: 350ms;
+  --duration-scene: 600ms; /* site vitrine uniquement */
+}
+
+@theme {
+  /* Échelle typographique 12/14/16/20/24/32 (Tailwind : xs/sm/base/xl/2xl/3xl) */
+  --text-3xl: 2rem;
+  --text-3xl--line-height: 1.25;
+
+  /* Motion — courbes (remplacent ease-in / ease-out / ease-in-out de Tailwind) */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1); /* entrées */
+  --ease-in: cubic-bezier(0.4, 0, 1, 1); /* sorties */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1); /* déplacements */
+}
+
+@theme inline {
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-brand-gold: var(--aws-gold-500);
+}
+
+/* Réduction des animations : neutralise transitions et animations CSS. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
