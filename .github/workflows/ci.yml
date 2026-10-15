@@ -43,7 +43,10 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      # Les écrans de démonstration sont prérendus seulement si ACW_DEMO=1 au build.
       - run: npm run build
+        env:
+          ACW_DEMO: "1"
       - run: npm run test:e2e
         env:
           HOME: /root

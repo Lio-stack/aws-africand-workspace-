@@ -25,3 +25,5 @@ Statut : retenu (architecture) ; dépendances installées étape par étape sur 
 4. i18n initial : FR seul vs FR/EN.
 5. Facturation : suivi manuel MVP vs Stripe/paiement mobile post-MVP.
 6. Connexion Google / LinkedIn (présente dans le prototype ACW) : en plus de l'e-mail + OTP, ou non. Impacts : fournisseurs OAuth Supabase, rattachement aux comptes validés, MFA admin.
+7. Critères de matching : 5 critères du prototype (compétences 40, secteur 20, séniorité 15, disponibilité 15, langues et localisation 10) ou 8 critères de l'ADR-003. Les écrans utilisent provisoirement les 5 du prototype.
+8. Nom du produit : « ACW » dans l'interface, « AfriCand Work Space (AWS) » dans la documentation. À harmoniser.

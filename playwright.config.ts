@@ -48,5 +48,7 @@ export default defineConfig({
     port: PORT,
     reuseExistingServer: !isCI,
     timeout: 120_000,
+    // Espaces de démonstration accessibles pendant les tests (voir lib/demo/guard.ts).
+    env: { ACW_DEMO: "1" },
   },
 });

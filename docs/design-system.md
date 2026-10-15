@@ -29,5 +29,15 @@ Chargement : skeletons. Vide : illustration sobre + CTA. Erreur : message action
 Le prototype HTML ACW (`ACW-prototype-web-inzone_6.html`, 50 écrans) fait foi pour la direction visuelle. Écarts volontaires avec le prototype, pour respecter les specs :
 - Connexion : e-mail + code à usage unique seulement. Les boutons Google / LinkedIn du prototype attendent une décision (voir `decisions-architecture.md`).
 - Profils anonymisés côté Business : pas de ville du consultant (donnée personnelle), au plus le pays ou la région.
+- Introductions côté Experts : l'entreprise reste anonyme (secteur, pays) jusqu'au double accord.
+- Factures Business : pas de bouton « Payer » (pas de paiement en ligne au MVP), règlement hors plateforme.
+- Contrats Admin : double contrat AfriCand ↔ entreprise et AfriCand ↔ expert (ADR-004), pas de contrat tripartite.
+- Paramètres Admin : MFA admin, anonymisation et consentement affichés comme non désactivables.
+
+## 8. Écrans implémentés (démonstration)
+Les 50 écrans du prototype existent dans l'application avec des données fictives (`lib/demo/*`), sans service branché :
+- accès : `/connexion` (+ `/code`, `/mfa`), `/inscription/consultant|entreprise`, `/compte`, `/compte/attente`, erreurs 403 (`/acces-refuse`), 404, 500 ;
+- espaces : `/experts/*`, `/business/*`, `/admin/*` (shells 01 à 03 dans les layouts).
+Les actions affichent un message « démonstration » : rien n'est enregistré. En production, les espaces membres répondent 404 sauf si `ACW_DEMO=1` (préproduction, tests e2e) — voir `lib/demo/guard.ts`. Ils seront protégés par l'authentification et le RBAC en phase 3.
 
 Chaque écran est développé, vérifié puis validé avant le suivant. Figma reste utilisable si un fichier est fourni.

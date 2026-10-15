@@ -1,6 +1,7 @@
 "use client";
 
 import { Info } from "lucide-react";
+import Link from "next/link";
 import { useActionState } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -57,7 +58,10 @@ export function LoginForm() {
           <p>
             La connexion n&apos;est pas encore ouverte : aucun code n&apos;a été envoyé à{" "}
             <span className="font-medium break-all">{state.email}</span>. L&apos;accès aux espaces membres
-            sera activé prochainement.
+            sera activé prochainement.{" "}
+            <Link href="/connexion/code" className="font-semibold text-action underline-offset-4 hover:underline">
+              Voir l&apos;écran de saisie du code
+            </Link>
           </p>
         </div>
       ) : null}
@@ -68,10 +72,16 @@ export function LoginForm() {
 
       <div className="flex flex-col gap-2 pt-1 text-center">
         <p className="text-[15px] text-label">
-          Vous n&apos;avez pas de compte ? <span className="whitespace-nowrap text-muted-foreground">S&apos;inscrire (bientôt)</span>
+          Vous n&apos;avez pas de compte ?{" "}
+          <Link href="/inscription/consultant" className="text-action hover:text-primary">
+            S&apos;inscrire
+          </Link>
         </p>
         <p className="text-[13px] text-muted-foreground">
-          Membre de l&apos;équipe AfriCand ? Une vérification MFA vous sera demandée.
+          Membre de l&apos;équipe AfriCand ?{" "}
+          <Link href="/connexion/mfa" className="text-action hover:text-primary">
+            Une vérification MFA vous sera demandée.
+          </Link>
         </p>
       </div>
     </form>
