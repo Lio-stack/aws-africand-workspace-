@@ -1,8 +1,8 @@
 import { Toaster } from "@/components/ui/sonner";
-import { requireDemo } from "@/lib/demo/guard";
+import { requireSpace } from "@/lib/auth/guard";
 
-export default function CompteLayout({ children }: LayoutProps<"/compte">) {
-  requireDemo();
+export default async function CompteLayout({ children }: LayoutProps<"/compte">) {
+  await requireSpace("experts");
   return (
     <>
       {children}

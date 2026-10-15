@@ -1,19 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
-import { toast } from "sonner";
+import { redirect, useSearchParams } from "next/navigation";
+import { useActionState, useEffect, useRef, useState } from "react";
 
 import { Button } from "@/components/ui/button";
+import { verifyLoginCode, type VerifyState } from "@/modules/auth/actions";
 
 const LENGTH = 6;
+const initialState: VerifyState = { status: "idle" };
 
-// Écran 05 · Saisie du code : six cases, collage accepté, compte à rebours de renvoi.
-// Démonstration : aucun code n'est envoyé ni vérifié tant que Supabase Auth n'est pas branché.
+// Écran 05 · Saisie du code : six cases, collage accepté, vérification Supabase Auth.
 export function OtpForm() {
+  const params = useSearchParams();
+  const email = params.get("email") ?? "";
   const [digits, setDigits] = useState<string[]>(Array(LENGTH).fill(""));
   const [seconds, setSeconds] = useState(42);
-  const [error, setError] = useState<string | null>(null);
+  const [state, formAction, pending] = useActionState(verifyLoginCode, initialState);
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
 
   useEffect(() => {
@@ -21,6 +24,10 @@ export function OtpForm() {
     const timer = setTimeout(() => setSeconds(seconds - 1), 1000);
     return () => clearTimeout(timer);
   }, [seconds]);
+
+  useEffect(() => {
+    if (state.status === "ok") redirect(state.next);
+  }, [state]);
 
   const setDigit = (index: number, value: string) => {
     const clean = value.replace(/\D/g, "");
@@ -34,20 +41,17 @@ export function OtpForm() {
     if (clean && index < LENGTH - 1) inputs.current[index + 1]?.focus();
   };
 
+  const invalid = state.status === "invalid" ? state.error : null;
+
   return (
-    <form
-      noValidate
-      className="flex flex-col gap-5"
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (digits.join("").length !== LENGTH) {
-          setError("Saisissez les 6 chiffres du code reçu.");
-          return;
-        }
-        setError(null);
-        toast("Code non vérifié (démonstration)", { description: "La vérification sera branchée avec Supabase Auth (phase 3)." });
-      }}
-    >
+    <form action={formAction} noValidate className="flex flex-col gap-5">
+      <input type="hidden" name="email" value={email} />
+      <input type="hidden" name="token" value={digits.join("")} />
+      {!email ? (
+        <p role="alert" className="text-[13px] text-destructive">
+          Adresse e-mail manquante. <Link href="/connexion" className="font-semibold underline">Recommencez depuis la connexion</Link>.
+        </p>
+      ) : null}
       <fieldset className="flex flex-col gap-2">
         <legend className="sr-only">Code à 6 chiffres</legend>
         <div className="grid grid-cols-6 gap-2 sm:gap-2.5">
@@ -58,7 +62,7 @@ export function OtpForm() {
                 inputs.current[index] = element;
               }}
               aria-label={`Chiffre ${index + 1}`}
-              aria-invalid={error ? true : undefined}
+              aria-invalid={invalid ? true : undefined}
               inputMode="numeric"
               autoComplete={index === 0 ? "one-time-code" : "off"}
               maxLength={LENGTH}
@@ -71,14 +75,14 @@ export function OtpForm() {
             />
           ))}
         </div>
-        {error ? (
+        {invalid ? (
           <p role="alert" className="text-[13px] text-destructive">
-            {error}
+            {invalid}
           </p>
         ) : null}
       </fieldset>
-      <Button type="submit" size="xl" className="w-full hover:bg-primary hover:brightness-[.88]">
-        Vérifier et continuer
+      <Button type="submit" size="xl" disabled={pending || !email} className="w-full hover:bg-primary hover:brightness-[.88]">
+        {pending ? "Vérification…" : "Vérifier et continuer"}
       </Button>
       <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
         {seconds > 0 ? (
@@ -86,16 +90,9 @@ export function OtpForm() {
             Renvoyer le code dans 0:{String(seconds).padStart(2, "0")}
           </span>
         ) : (
-          <button
-            type="button"
-            onClick={() => {
-              setSeconds(42);
-              toast("Code non renvoyé (démonstration)");
-            }}
-            className="font-semibold text-foreground"
-          >
+          <Link href="/connexion" className="font-semibold text-foreground">
             Renvoyer le code
-          </button>
+          </Link>
         )}
         <Link href="/connexion" className="text-foreground">
           Modifier l&apos;adresse e-mail

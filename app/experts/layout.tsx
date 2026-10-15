@@ -1,7 +1,7 @@
 import { AppShell } from "@/components/app/app-shell";
-import { requireDemo } from "@/lib/demo/guard";
+import { requireSpace } from "@/lib/auth/guard";
 
-export default function ExpertsLayout({ children }: LayoutProps<"/experts">) {
-  requireDemo();
+export default async function ExpertsLayout({ children }: LayoutProps<"/experts">) {
+  await requireSpace("experts");
   return <AppShell space="experts">{children}</AppShell>;
 }
