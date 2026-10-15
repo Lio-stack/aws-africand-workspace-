@@ -247,16 +247,17 @@ export function SettingsForm() {
       </section>
       <section aria-labelledby="matching-params" className="flex flex-col gap-4 rounded-2xl bg-card p-5 shadow-card sm:p-6">
         <h2 id="matching-params" className="text-lg font-bold">Matching</h2>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-5">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
           {matchingCriteria.map((criterion) => (
             <label key={criterion.label} className="flex flex-col gap-1.5 text-[13px] font-semibold text-label">
-              {criterion.label}
+              {criterion.label} (max {criterion.max})
               <input defaultValue={criterion.max} inputMode="numeric" className={fieldClass} />
             </label>
           ))}
         </div>
         <span className="text-[13px] text-muted-foreground">
-          Pondérations par défaut, ajustables pour chaque besoin lors de la qualification. L&apos;ADR-003 prévoit 8 critères : arbitrage en cours.
+          8 critères ADR-003 / ADR-010 (total 100), ajustables pour chaque besoin lors de la qualification.
+          Toute modification est versionnée et auditée.
         </span>
       </section>
       <section aria-labelledby="securite" className="flex flex-col gap-1 rounded-2xl bg-card p-5 shadow-card sm:p-6">

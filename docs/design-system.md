@@ -1,4 +1,4 @@
-# AWS — Design System (fondations)
+# ACW — Design System (fondations)
 
 ## 1. Principes
 Premium, sobre, international. Clarté > décoration. Hiérarchie forte, densité maîtrisée, français/anglais prêts (i18n).

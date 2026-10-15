@@ -1,7 +1,7 @@
-# AfriCand Work Space (AWS) — Vision Produit
+# AfriCand Work Space (ACW) — Vision Produit
 
 ## 1. Positionnement
-AfriCand Work Space (AWS) est une plateforme B2B privée opérée par AfriCand Consulting.
+AfriCand Work Space (ACW) est une plateforme B2B privée opérée par AfriCand Consulting.
 Elle met en relation des entreprises validées avec des consultants indépendants seniors préalablement qualifiés.
 
 Ce n'est pas un annuaire public. C'est un outil métier contrôlé, confidentiel, premium.
@@ -14,9 +14,9 @@ Ce n'est pas un annuaire public. C'est un outil métier contrôlé, confidentiel
 ## 3. Les trois espaces
 | Espace | Utilisateurs | Finalité |
 |---|---|---|
-| AWS Experts | Consultants candidats / qualifiés | Candidature, profil, disponibilités, missions, livrables, paiements autorisés |
-| AWS Business | Entreprises validées + membres | Exprimer besoin, explorer profils anonymisés autorisés, shortlists, introductions, suivi missions |
-| AWS Administration | Équipe AfriCand | Validation, qualification, matching, propositions, contrats, facturation, pilotage |
+| ACW Experts | Consultants candidats / qualifiés | Candidature, profil, disponibilités, missions, livrables, paiements autorisés |
+| ACW Business | Entreprises validées + membres | Exprimer besoin, explorer profils anonymisés autorisés, shortlists, introductions, suivi missions |
+| ACW Administration | Équipe AfriCand | Validation, qualification, matching, propositions, contrats, facturation, pilotage |
 
 ## 4. Principes produit
 1. Confidentialité par défaut : identité réelle ≠ profil anonymisé.

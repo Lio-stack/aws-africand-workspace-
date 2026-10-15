@@ -156,14 +156,14 @@ export const needDetail = {
   ],
   note: "Besoin confirmé avec le DG le [DATE]. Priorité à une expérience transactionnelle dans l'agro-industrie UEMOA.",
   proposed: [
-    { code: "Expert A-1042", title: "Conseil M&A senior, 12 ans", score: 94 },
-    { code: "Expert D-1156", title: "Analyste due diligence, 7 ans", score: 82 },
+    { code: "Expert A-1042", title: "Conseil M&A senior, 12 ans", score: 91 },
+    { code: "Expert D-1156", title: "Analyste due diligence, 7 ans", score: 81 },
     { code: "Expert B-2217", title: "DAF de transition, 15 ans", score: 79 },
   ],
 };
 
 export const anonymizedProfiles = [
-  { code: "Expert A-1042", slug: "a-1042", title: "Conseil M&A senior, 12 ans d'expérience", country: "Côte d'Ivoire", tags: ["M&A", "Private equity", "Agro-industrie"], score: 94, cat: "M&A" },
+  { code: "Expert A-1042", slug: "a-1042", title: "Conseil M&A senior, 12 ans d'expérience", country: "Côte d'Ivoire", tags: ["M&A", "Private equity", "Agro-industrie"], score: 91, cat: "M&A" },
   { code: "Expert B-2217", slug: "b-2217", title: "Directeur financier de transition, 15 ans", country: "Sénégal", tags: ["Finance", "Restructuration", "UEMOA"], score: 89, cat: "Finance" },
   { code: "Expert C-0381", slug: "c-0381", title: "Consultant stratégie et entrée de marché, 9 ans", country: "Maroc", tags: ["Stratégie", "Market entry", "Distribution"], score: 86, cat: "Stratégie" },
   { code: "Expert D-1156", slug: "d-1156", title: "Analyste due diligence financière, 7 ans", country: "Côte d'Ivoire", tags: ["Due diligence", "M&A", "Modélisation"], score: 82, cat: "M&A" },
@@ -175,14 +175,17 @@ export const profileDetail = {
   code: "Expert A-1042",
   title: "Conseil M&A senior, 12 ans d'expérience",
   meta: "Côte d'Ivoire · Français, anglais · Partiellement disponible",
-  score: 94,
+  score: 91,
   need: "[B-031]",
   criteria: [
-    { label: "Compétences clés", pts: 38, max: 40 },
-    { label: "Expérience sectorielle", pts: 19, max: 20 },
-    { label: "Séniorité", pts: 15, max: 15 },
-    { label: "Disponibilité", pts: 12, max: 15 },
-    { label: "Langues et localisation", pts: 10, max: 10 },
+    { label: "Compétences clés", pts: 28, max: 30 },
+    { label: "Expérience", pts: 18, max: 20 },
+    { label: "Expérience sectorielle", pts: 11, max: 12 },
+    { label: "Disponibilité", pts: 10, max: 12 },
+    { label: "Langues", pts: 8, max: 8 },
+    { label: "Budget", pts: 7, max: 8 },
+    { label: "Certifications", pts: 5, max: 5 },
+    { label: "Localisation", pts: 4, max: 5 },
   ],
   pros: [
     "9 opérations M&A conduites en Afrique de l'Ouest, dont 4 dans l'agro-industrie",
@@ -210,8 +213,8 @@ export const shortlists: { id: string; label: string; cards: ShortlistCard[] }[]
     id: "B-031",
     label: "Due diligence financière [B-031]",
     cards: [
-      { code: "Expert A-1042", title: "Conseil M&A senior", score: 94, rows: rows("12 ans", "Agro-industrie", "8 j / mois", "Côte d'Ivoire") },
-      { code: "Expert D-1156", title: "Analyste due diligence", score: 82, rows: rows("7 ans", "Services financiers", "Disponible", "Côte d'Ivoire") },
+      { code: "Expert A-1042", title: "Conseil M&A senior", score: 91, rows: rows("12 ans", "Agro-industrie", "8 j / mois", "Côte d'Ivoire") },
+      { code: "Expert D-1156", title: "Analyste due diligence", score: 81, rows: rows("7 ans", "Services financiers", "Disponible", "Côte d'Ivoire") },
       { code: "Expert B-2217", title: "DAF de transition", score: 79, rows: rows("15 ans", "Industrie", "4 j / mois", "Sénégal") },
     ],
   },
@@ -219,7 +222,7 @@ export const shortlists: { id: string; label: string; cards: ShortlistCard[] }[]
     id: "B-028",
     label: "DAF de transition [B-028]",
     cards: [
-      { code: "Expert B-2217", title: "DAF de transition", score: 91, rows: rows("15 ans", "Industrie", "4 j / mois", "Sénégal") },
+      { code: "Expert B-2217", title: "DAF de transition", score: 79, rows: rows("15 ans", "Industrie", "4 j / mois", "Sénégal") },
       { code: "Expert F-1720", title: "Financement structuré", score: 77, rows: rows("10 ans", "Énergie", "Disponible", "Togo") },
     ],
   },

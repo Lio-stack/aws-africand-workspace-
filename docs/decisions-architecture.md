@@ -1,4 +1,4 @@
-# AWS — Décisions d'Architecture (ADR light)
+# ACW — Décisions d'Architecture (ADR light)
 
 ## ADR-001 — Monolithe modulaire Next.js
 Statut : retenu. Contexte : équipe réduite, MVP rapide. Choix : 1 app Next.js App Router + modules. Rejeté : microservices (ops prématurée). Conséquence : discipline d'import inter-modules.
@@ -21,9 +21,18 @@ Statut : retenu (architecture) ; dépendances installées étape par étape sur 
 ## Décisions ouvertes (humain requis)
 1. Hébergeur mail : Resend vs Postmark.
 2. Déploiement : Vercel vs VPS souveraineté.
-3. MFA : TOTP vs SMS.
+3. MFA : TOTP vs SMS (MFA obligatoire pour l'équipe AfriCand — validé, mécanique à trancher).
 4. i18n initial : FR seul vs FR/EN.
 5. Facturation : suivi manuel MVP vs Stripe/paiement mobile post-MVP.
-6. Connexion Google / LinkedIn (présente dans le prototype ACW) : en plus de l'e-mail + OTP, ou non. Impacts : fournisseurs OAuth Supabase, rattachement aux comptes validés, MFA admin.
-7. Critères de matching : 5 critères du prototype (compétences 40, secteur 20, séniorité 15, disponibilité 15, langues et localisation 10) ou 8 critères de l'ADR-003. Les écrans utilisent provisoirement les 5 du prototype.
-8. Nom du produit : « ACW » dans l'interface, « AfriCand Work Space (AWS) » dans la documentation. À harmoniser.
+
+## Décisions tranchées le 15/10/2026 (humain : fondateur)
+- **ADR-007 — Nom produit : ACW.** « AfriCand Work Space (ACW) » partout, docs renommées. Clos le point 8.
+- **ADR-008 — Bleu officiel : `#0B5CFF`** (hover `#0848C7`, tint `#E8F0FF`). Source : Figma Signal W. Appliqué en token global.
+- **ADR-009 — Isolation : `company_id`.** `org_id` abandonné. Filtre serveur `company_id / user_id / rôle` systématique.
+- **ADR-010 — Matching : 8 critères ADR-003** (30/20/12/12/8/8/5/5). Écrans migrés. Pondérations paramétrables par l'admin (`settings`, audité). Clos le point 7.
+- **ADR-011 — Auth MVP : e-mail + code OTP ; MFA obligatoire équipe AfriCand.** Google/LinkedIn reportés post-MVP. Clos le point 6.
+- **ADR-012 — Localisation Business : pays/région max, jamais la ville.**
+- **ADR-013 — Révélation identité : double accord (entreprise + consultant) ET validation admin.**
+  Après révélation : nom, photo, parcours complet visibles. Les coordonnées personnelles du consultant
+  (téléphone, e-mail, LinkedIn) ne sont **JAMAIS** montrées à l'entreprise : contact uniquement via AfriCand
+  (chargé de compte, appel animé par AfriCand, facturation puis reversement au consultant).

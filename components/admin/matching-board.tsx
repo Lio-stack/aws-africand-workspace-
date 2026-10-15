@@ -45,7 +45,7 @@ export function MatchingBoard() {
         </div>
       </div>
       <section aria-label="Résultats du matching" className="relative overflow-x-auto rounded-2xl bg-card shadow-card">
-        <table className="w-full min-w-[860px] border-collapse text-left text-sm">
+        <table className="w-full min-w-[1150px] border-collapse text-left text-sm">
           <caption className="sr-only">Consultants classés par score de matching</caption>
           <thead>
             <tr className="border-b border-border">

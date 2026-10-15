@@ -1,4 +1,4 @@
-# AWS — Architecture Générale
+# ACW — Architecture Générale
 
 ## 1. État initial constaté (14/10/2026)
 - Dépôt / workspace vide : 0 fichier, pas de git, pas de dépendance, pas de config.
@@ -39,7 +39,7 @@ Décisions ouvertes (à valider humainement) : voir `decisions-architecture.md`.
 - `modules/auth|users|consultants|skills|companies|needs|matching|shortlists|intros|proposals|contracts|missions|deliverables|documents|billing|notifications|reporting|audit|settings`
 - Chaque module : `schema.ts (Zod)`, `service.ts (logique serveur)`, `queries.ts`, `actions.ts`, `components/`.
 - Aucun accès DB direct depuis Client Components. Passage obligé par service serveur.
-- Toute lecture sensible filtre par `org_id / user_id / rôle` côté serveur.
+- Toute lecture sensible filtre par `company_id / user_id / rôle` côté serveur.
 
 ## 5. Flux de données type
 Client → Server Action / Route Handler → vérif session + rôle → validation Zod → service → PostgreSQL (RLS + filtre applicatif) → audit log → réponse minimale.

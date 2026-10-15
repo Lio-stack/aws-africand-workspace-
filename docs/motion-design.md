@@ -1,4 +1,4 @@
-# AWS — Motion Design (architecture et conventions)
+# ACW — Motion Design (architecture et conventions)
 
 Décision associée : ADR-006 (`decisions-architecture.md`). Complète `design-system.md`.
 

@@ -33,7 +33,13 @@ appel d'introduction animé par AfriCand → proposition et contrat AfriCand ↔
 mission → facture AfriCand au client → encaissement → reversement de la part au consultant.
 
 ## Déclinaison écrans (état vérifié)
-- `/business/profils/*`, `/business/introductions/*` : variante anonymisée, contacts AfriCand uniquement.
+- `/business/profils/*`, `/business/introductions/*` : variante anonymisée (55), contacts AfriCand uniquement.
 - `/business/introductions/appel` : planification via AfriCand (créneau, format, participants).
 - `/experts/paiements` : versements AfriCand uniquement, refs `[RV-…]`.
 - `/admin/facturation` : double flux `Factures clients [FA-…]` / `Reversements experts [RV-…]` + commission.
+
+## Révélation identité (ADR-013)
+Le profil reste anonyme (variante 55) jusqu'au **double accord entreprise + consultant ET validation admin AfriCand**.
+Après révélation (variante 52) : nom, photo et parcours complet visibles.
+Les coordonnées personnelles du consultant (téléphone, e-mail, LinkedIn) ne sont **JAMAIS** montrées à l'entreprise :
+contact uniquement via AfriCand (chargé de compte, appel animé par AfriCand, facturation puis reversement au consultant).

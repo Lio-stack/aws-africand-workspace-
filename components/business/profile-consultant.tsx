@@ -1,6 +1,6 @@
 "use client";
 
-import { GraduationCap, Link2, Mail, MoreHorizontal, Phone, UserRound } from "lucide-react";
+import { GraduationCap, Mail, MoreHorizontal, Phone, UserRound } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -101,12 +101,14 @@ export function ProfileConsultant({ anonymous = false }: { anonymous?: boolean }
                 </a>
               </>
             ) : (
+              // ADR-013 : identité révélée (nom, photo, parcours) mais coordonnées
+              // personnelles JAMAIS montrées — contact uniquement via AfriCand.
               <>
-                <a href="tel:+225" className="flex h-[46px] items-center gap-2 rounded-xl bg-ref-blue px-[18px] text-[15px] font-semibold text-white hover:bg-ref-blue-hover">
-                  <Phone aria-hidden className="size-[18px]" /> Appeler
-                </a>
-                <a href="mailto:nom@exemple.com" className="flex h-[46px] items-center gap-2 rounded-xl border border-ref-blue bg-white px-[18px] text-[15px] font-semibold text-ref-blue hover:bg-ref-tint">
-                  <Mail aria-hidden className="size-[18px]" /> E-mail
+                <Link href="/business/introductions/appel" className="flex h-[46px] items-center gap-2 rounded-xl bg-ref-blue px-[18px] text-[15px] font-semibold text-white hover:bg-ref-blue-hover">
+                  <Phone aria-hidden className="size-[18px]" /> Appeler AfriCand
+                </Link>
+                <a href="mailto:contact@africand.com" className="flex h-[46px] items-center gap-2 rounded-xl border border-ref-blue bg-white px-[18px] text-[15px] font-semibold text-ref-blue hover:bg-ref-tint">
+                  <Mail aria-hidden className="size-[18px]" /> Écrire à AfriCand
                 </a>
               </>
             )}
@@ -185,29 +187,20 @@ export function ProfileConsultant({ anonymous = false }: { anonymous?: boolean }
 
         <aside className="flex min-w-0 flex-[1_1_300px] flex-col gap-5">
           <section aria-label="Coordonnées" className="flex flex-col gap-3 rounded-2xl border border-ref-line bg-white p-6">
-            {anonymous ? (
-              <>
-                <h2 className="text-lg font-bold text-ref-ink">Votre contact AfriCand</h2>
-                <div className="flex items-center gap-3">
-                  <span aria-hidden className="flex size-12 items-center justify-center rounded-full bg-ref-blue text-[15px] font-bold text-white">AC</span>
-                  <span className="flex flex-col">
-                    <span className="text-[15px] font-semibold text-ref-ink">[Prénom Nom]</span>
-                    <span className="text-[13px] text-ref-muted">Chargé de compte AfriCand</span>
-                  </span>
-                </div>
-              </>
-            ) : (
-              <h2 className="text-lg font-bold text-ref-ink">Coordonnées</h2>
-            )}
-            <ContactRow icon={Phone} label={anonymous ? "Téléphone AfriCand" : "Téléphone"} value="+225 [NUMÉRO]" href="tel:+225" />
-            <ContactRow icon={Mail} label={anonymous ? "E-mail AfriCand" : "E-mail"} value={anonymous ? "[e-mail AfriCand]" : "[nom@exemple.com]"} href={anonymous ? "mailto:contact@africand.com" : "mailto:nom@exemple.com"} />
-            {anonymous ? null : (
-              <ContactRow icon={Link2} label="Profil LinkedIn" value="[lien du profil]" href="#" />
-            )}
+            <h2 className="text-lg font-bold text-ref-ink">Votre contact AfriCand</h2>
+            <div className="flex items-center gap-3">
+              <span aria-hidden className="flex size-12 items-center justify-center rounded-full bg-ref-blue text-[15px] font-bold text-white">AC</span>
+              <span className="flex flex-col">
+                <span className="text-[15px] font-semibold text-ref-ink">[Prénom Nom]</span>
+                <span className="text-[13px] text-ref-muted">Chargé de compte AfriCand</span>
+              </span>
+            </div>
+            <ContactRow icon={Phone} label="Téléphone AfriCand" value="+225 [NUMÉRO]" href="tel:+225" />
+            <ContactRow icon={Mail} label="E-mail AfriCand" value="[e-mail AfriCand]" href="mailto:contact@africand.com" />
             <p className="text-[13px] leading-relaxed text-ref-muted">
               {anonymous
                 ? "Ce consultant intervient comme indépendant pour AfriCand. Toute prise de contact, tout appel et toute mission passent par AfriCand, votre interlocuteur unique."
-                : "Coordonnées visibles car le consultant a accepté l'introduction. Les échanges restent tracés par AfriCand."}
+                : "Identité révélée après double accord et validation AfriCand. Les coordonnées personnelles du consultant ne sont jamais partagées : contactez votre chargé de compte."}
             </p>
           </section>
 

@@ -1,4 +1,4 @@
-# AWS — Architecture Fonctionnelle (20 modules)
+# ACW — Architecture Fonctionnelle (20 modules)
 
 Convention par module : Objectif / Responsabilités / Données / Dépendances / Rôles / Règles métier / Risques / Acceptation.
 

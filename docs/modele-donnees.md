@@ -1,4 +1,4 @@
-# AWS — Modèle de Données (proposition relationnelle)
+# ACW — Modèle de Données (proposition relationnelle)
 
 ## 1. Principes
 - PostgreSQL, UUID PK (`gen_random_uuid()`), `created_at/updated_at`, soft-delete métier (`status`) + hard-delete RGPD sur demande.

@@ -152,35 +152,41 @@ export const needsToQualify = [
   },
 ];
 
-// Critères du prototype (5). L'ADR-003 prévoit 8 critères : décision ouverte n° 7.
+// ADR-003 / ADR-010 : 8 critères pondérés (total 100), réglables en settings.
 export const matchingCriteria = [
-  { label: "Compétences clés", short: "Compétences", max: 40 },
-  { label: "Expérience sectorielle", short: "Secteur", max: 20 },
-  { label: "Séniorité", short: "Séniorité", max: 15 },
-  { label: "Disponibilité", short: "Dispo.", max: 15 },
-  { label: "Langues et localisation", short: "Langues", max: 10 },
+  { label: "Compétences clés", short: "Compétences", max: 30 },
+  { label: "Expérience (missions comparables)", short: "Expérience", max: 20 },
+  { label: "Expérience sectorielle", short: "Secteur", max: 12 },
+  { label: "Disponibilité", short: "Dispo.", max: 12 },
+  { label: "Langues", short: "Langues", max: 8 },
+  { label: "Budget", short: "Budget", max: 8 },
+  { label: "Certifications", short: "Certifs", max: 5 },
+  { label: "Localisation", short: "Localisation", max: 5 },
 ];
 
 export const matchingCandidates = [
-  { id: 1, name: "[Candidat 1]", code: "A-1042", title: "M&A senior", pts: [38, 19, 15, 12, 10], selected: true },
-  { id: 2, name: "[Candidat 2]", code: "B-2217", title: "DAF de transition", pts: [33, 14, 15, 9, 8], selected: true },
-  { id: 3, name: "[Candidat 6]", code: "G-3310", title: "Transaction services", pts: [34, 12, 12, 13, 7], selected: false },
-  { id: 4, name: "[Candidat 7]", code: "D-1156", title: "Due diligence", pts: [32, 15, 9, 15, 10], selected: true },
-  { id: 5, name: "[Candidat 8]", code: "H-0472", title: "Audit financier", pts: [28, 11, 12, 14, 9], selected: false },
+  { id: 1, name: "[Candidat 1]", code: "A-1042", title: "M&A senior", pts: [28, 18, 11, 10, 8, 7, 5, 4], selected: true },
+  { id: 2, name: "[Candidat 2]", code: "B-2217", title: "DAF de transition", pts: [25, 16, 10, 8, 7, 6, 4, 3], selected: true },
+  { id: 3, name: "[Candidat 6]", code: "G-3310", title: "Transaction services", pts: [26, 14, 9, 11, 6, 5, 3, 4], selected: false },
+  { id: 4, name: "[Candidat 7]", code: "D-1156", title: "Due diligence", pts: [27, 15, 11, 12, 8, 5, 1, 2], selected: true },
+  { id: 5, name: "[Candidat 8]", code: "H-0472", title: "Audit financier", pts: [24, 12, 8, 12, 7, 5, 4, 3], selected: false },
 ];
 
 export const comparatorCandidates = [
-  { name: "[Candidat 1]", code: "A-1042", score: 94 },
+  { name: "[Candidat 1]", code: "A-1042", score: 91 },
   { name: "[Candidat 7]", code: "D-1156", score: 81 },
   { name: "[Candidat 2]", code: "B-2217", score: 79 },
 ];
 
 export const comparatorRows: { label: string; values: string[]; best: number }[] = [
-  { label: "Compétences clés", values: ["38 / 40", "32 / 40", "33 / 40"], best: 0 },
-  { label: "Expérience sectorielle", values: ["19 / 20", "15 / 20", "14 / 20"], best: 0 },
-  { label: "Séniorité", values: ["12 ans", "7 ans", "15 ans"], best: 2 },
-  { label: "Disponibilité", values: ["8 j / mois", "Immédiate", "4 j / mois"], best: 1 },
-  { label: "Opérations M&A conduites", values: ["9", "4", "2"], best: 0 },
+  { label: "Compétences clés", values: ["28 / 30", "27 / 30", "25 / 30"], best: 0 },
+  { label: "Expérience", values: ["18 / 20", "15 / 20", "16 / 20"], best: 0 },
+  { label: "Expérience sectorielle", values: ["11 / 12", "11 / 12", "10 / 12"], best: 0 },
+  { label: "Disponibilité", values: ["10 / 12", "12 / 12", "8 / 12"], best: 1 },
+  { label: "Langues", values: ["8 / 8", "8 / 8", "7 / 8"], best: 0 },
+  { label: "Budget", values: ["7 / 8", "5 / 8", "6 / 8"], best: 0 },
+  { label: "Certifications", values: ["5 / 5", "1 / 5", "4 / 5"], best: 0 },
+  { label: "Localisation", values: ["4 / 5", "2 / 5", "3 / 5"], best: 0 },
   { label: "TJM indicatif", values: ["[TJM A]", "[TJM D]", "[TJM B]"], best: -1 },
   { label: "Références vérifiées", values: ["2 sur 3", "3 sur 3", "2 sur 2"], best: 1 },
   { label: "Missions ACW réalisées", values: ["1", "0", "2"], best: 2 },

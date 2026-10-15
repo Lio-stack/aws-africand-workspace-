@@ -1,4 +1,4 @@
-# AWS — Roadmap Technique
+# ACW — Roadmap Technique
 
 ## MVP réaliste (phases 1-7 partielles + 8 minimale)
 Auth + RBAC + candidatures/validation + entreprises/validation + besoins + profils anonymisés + matching explicable + shortlists + introductions + propositions simples + suivi missions/livrables + documents privés. Facturation : suivi manuel simple. Pas de paiement en ligne.
