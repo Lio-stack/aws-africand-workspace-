@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 
-import { AccessCard, AcwLogo, BackLink, DemoNotice } from "@/components/auth/access-layout";
+import { AccessCard, AcwLogo, BackLink } from "@/components/auth/access-layout";
 import { OtpForm } from "@/components/auth/otp-form";
 
 export const metadata: Metadata = { title: "Code de connexion" };
 
-// Écran 05 · Saisie du code OTP.
+// Écran 05 · Saisie du code OTP (e-mail + code, ADR-011).
 export default function CodePage() {
   return (
     <AccessCard footer="Vous ne trouvez pas l'e-mail ? Vérifiez vos courriers indésirables.">
@@ -17,8 +18,9 @@ export default function CodePage() {
           Un code à 6 chiffres est envoyé à votre adresse e-mail. Il expire dans 10 minutes.
         </p>
       </div>
-      <DemoNotice>Démonstration : aucun code n&apos;est envoyé ni vérifié tant que l&apos;authentification (phase 3) n&apos;est pas branchée.</DemoNotice>
-      <OtpForm />
+      <Suspense>
+        <OtpForm />
+      </Suspense>
     </AccessCard>
   );
 }

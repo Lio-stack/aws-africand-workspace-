@@ -1,7 +1,7 @@
 import { ChevronsUpDown } from "lucide-react";
 
 import { AppShell } from "@/components/app/app-shell";
-import { requireDemo } from "@/lib/demo/guard";
+import { requireSpace } from "@/lib/auth/guard";
 import { demoCompany } from "@/lib/demo/business";
 
 // Contexte entreprise (docs/design-system.md §3). Une seule entreprise en démonstration.
@@ -20,8 +20,8 @@ function CompanyContext() {
   );
 }
 
-export default function BusinessLayout({ children }: LayoutProps<"/business">) {
-  requireDemo();
+export default async function BusinessLayout({ children }: LayoutProps<"/business">) {
+  await requireSpace("business");
   return (
     <AppShell space="business" sidebarTop={<CompanyContext />}>
       {children}

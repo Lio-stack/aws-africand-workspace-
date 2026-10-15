@@ -56,11 +56,10 @@ export function LoginForm() {
         >
           <Info aria-hidden className="mt-0.5 size-4 shrink-0 text-action" />
           <p>
-            La connexion n&apos;est pas encore ouverte : aucun code n&apos;a été envoyé à{" "}
-            <span className="font-medium break-all">{state.email}</span>. L&apos;accès aux espaces membres
-            sera activé prochainement.{" "}
+            Envoi impossible à{" "}
+            <span className="font-medium break-all">{state.email}</span>. Vérifiez l&apos;adresse ou réessayez.{" "}
             <Link href="/connexion/code" className="font-semibold text-action underline-offset-4 hover:underline">
-              Voir l&apos;écran de saisie du code
+              Réessayer
             </Link>
           </p>
         </div>
