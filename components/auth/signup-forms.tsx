@@ -7,6 +7,7 @@ import type { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { companySignupSchema, consultantSignupSchema } from "@/modules/auth/schema";
+import { submitCandidature } from "@/modules/experts/actions";
 import { cn } from "@/lib/utils";
 
 const fieldClass =
@@ -14,7 +15,7 @@ const fieldClass =
 
 type Errors = Record<string, string>;
 
-function useValidatedSubmit(schema: z.ZodType) {
+function useValidatedSubmit(schema: z.ZodType, onValid?: (form: HTMLFormElement) => void | Promise<void>) {
   const router = useRouter();
   const [errors, setErrors] = useState<Errors>({});
 
@@ -34,6 +35,10 @@ function useValidatedSubmit(schema: z.ZodType) {
       return;
     }
     setErrors({});
+    if (onValid) {
+      void onValid(event.currentTarget);
+      return;
+    }
     // Démonstration : aucun compte n'est créé. On montre l'écran suivant du parcours.
     router.push("/compte/attente");
   };
@@ -138,11 +143,25 @@ const conditions = (
   </>
 );
 
-// Écran 07 · Inscription consultant.
+// Écran 07 · Inscription consultant → candidature réelle (statut candidat, phase 4).
 export function ConsultantSignupForm() {
-  const { errors, onSubmit } = useValidatedSubmit(consultantSignupSchema);
+  const router = useRouter();
+  const [serverError, setServerError] = useState<string | null>(null);
+  const { errors, onSubmit } = useValidatedSubmit(consultantSignupSchema, async (form) => {
+    const result = await submitCandidature({ status: "idle" }, new FormData(form));
+    if (result.status === "ok") {
+      router.push("/compte/attente");
+      return;
+    }
+    if (result.status === "invalid" && result.errors.form) setServerError(result.errors.form);
+  });
   return (
     <form noValidate onSubmit={onSubmit} className="flex flex-col gap-4">
+      {serverError ? (
+        <p role="alert" className="text-[13px] text-destructive">
+          {serverError}
+        </p>
+      ) : null}
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <TextField name="firstName" label="Prénom" autoComplete="given-name" errors={errors} />
         <TextField name="lastName" label="Nom" autoComplete="family-name" errors={errors} />
