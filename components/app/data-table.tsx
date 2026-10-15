@@ -46,7 +46,7 @@ export function DataTable<T>({
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={rowKey(row)} className="border-b border-border transition-colors last:border-0 hover:bg-[#f8f8f8]">
+              <tr key={rowKey(row)} className="border-b border-border transition-colors last:border-0 hover:bg-muted/60">
                 {columns.map((column) => (
                   <td key={column.header} className={cn("px-5 py-4 align-middle text-foreground first:pl-6 last:pr-6", column.className)}>
                     {column.cell(row)}

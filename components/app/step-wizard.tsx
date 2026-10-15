@@ -49,7 +49,7 @@ export function StepWizard({
                 aria-current={active ? "step" : undefined}
                 className={cn(
                   "text-left text-sm outline-none focus-visible:underline",
-                  active ? "font-semibold text-action" : done ? "font-medium text-foreground" : "font-medium text-muted-foreground",
+                  active ? "font-semibold text-foreground" : done ? "font-medium text-foreground" : "font-medium text-muted-foreground",
                 )}
               >
                 {n}. {item.name}
@@ -80,7 +80,7 @@ export function StepWizard({
           ))}
         </div>
         <div className="flex items-start gap-3 rounded-[10px] bg-muted px-4 py-3.5 text-sm text-label">
-          <Info aria-hidden className="mt-0.5 size-5 shrink-0 text-action" />
+          <Info aria-hidden className="mt-0.5 size-5 shrink-0 text-muted-foreground" />
           <span>{current.tip}</span>
         </div>
         <div className="flex flex-wrap justify-between gap-3">

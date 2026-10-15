@@ -27,7 +27,7 @@ export function ShortlistTabs() {
             onClick={() => setTab(list.id)}
             className={cn(
               "-mb-px h-12 shrink-0 border-b-[3px] px-4 text-[15px] whitespace-nowrap outline-none focus-visible:bg-action-subtle",
-              tab === list.id ? "border-action font-semibold text-action" : "border-transparent font-medium text-label",
+              tab === list.id ? "border-action font-semibold text-foreground" : "border-transparent font-medium text-label",
             )}
           >
             {list.label}
@@ -43,17 +43,17 @@ export function ShortlistTabs() {
           {cards.map((card) => (
             <article key={card.code} className="flex flex-col gap-4 rounded-2xl bg-card p-5 shadow-card">
               <div className="flex items-start justify-between gap-3">
-                <span aria-hidden className="flex size-14 items-center justify-center rounded-full bg-[#e4e4e4]">
+                <span aria-hidden className="flex size-14 items-center justify-center rounded-full bg-ref-ice">
                   <UserRound className="size-6 text-muted-foreground" />
                 </span>
                 <span className="flex flex-col items-end">
-                  <span className="text-[28px] leading-none font-bold text-action tabular-nums">{card.score}</span>
+                  <span className="text-[28px] leading-none font-bold text-foreground tabular-nums">{card.score}</span>
                   <span className="text-xs text-muted-foreground">score / 100</span>
                 </span>
               </div>
               <div className="flex flex-col">
                 {card.code === "Expert A-1042" ? (
-                  <Link href="/business/profils/a-1042" className="text-[17px] font-semibold hover:text-action">
+                  <Link href="/business/profils/a-1042" className="text-[17px] font-semibold hover:text-foreground">
                     {card.code}
                   </Link>
                 ) : (
@@ -89,7 +89,7 @@ export function ShortlistTabs() {
           ))}
         </div>
       )}
-      <Link href="/business/profils" className="self-start text-[15px] font-semibold text-action hover:text-primary">
+      <Link href="/business/profils" className="self-start text-[15px] font-semibold text-foreground">
         Ajouter des profils depuis l&apos;exploration
       </Link>
     </div>

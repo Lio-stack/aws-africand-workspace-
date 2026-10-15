@@ -92,12 +92,12 @@ export function OtpForm() {
               setSeconds(42);
               toast("Code non renvoyé (démonstration)");
             }}
-            className="font-semibold text-action hover:text-primary"
+            className="font-semibold text-foreground"
           >
             Renvoyer le code
           </button>
         )}
-        <Link href="/connexion" className="text-action hover:text-primary">
+        <Link href="/connexion" className="text-foreground">
           Modifier l&apos;adresse e-mail
         </Link>
       </div>

@@ -41,7 +41,7 @@ export function IntroductionsConsent() {
       <section aria-labelledby="demande" className="flex flex-col gap-4 rounded-2xl bg-card p-5 shadow-card sm:p-6">
         <div className="flex items-center gap-3.5">
           <span aria-hidden className="flex size-12 items-center justify-center rounded-xl bg-action-subtle">
-            <Handshake className="size-6 text-action" />
+            <Handshake className="size-6 text-foreground" />
           </span>
           <div className="flex flex-col">
             <h2 id="demande" className="text-lg font-bold">Due diligence financière</h2>
@@ -79,7 +79,7 @@ export function IntroductionsConsent() {
             <span className="text-[13px] text-muted-foreground">Réponse attendue avant le [DATE]. En production, votre consentement est horodaté et consigné.</span>
           </>
         ) : (
-          <div role="status" className={cn("flex flex-wrap items-center justify-between gap-3 rounded-[10px] px-4 py-3 text-[15px]", decision === "accepted" ? "bg-action-subtle text-action" : "bg-secondary text-label")}>
+          <div role="status" className={cn("flex flex-wrap items-center justify-between gap-3 rounded-[10px] px-4 py-3 text-[15px]", decision === "accepted" ? "bg-secondary text-foreground" : "bg-secondary text-label")}>
             <span>
               {decision === "accepted"
                 ? "Introduction acceptée (démonstration). AfriCand vous mettrait en relation sous 24 heures."

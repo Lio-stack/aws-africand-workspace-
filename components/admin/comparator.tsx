@@ -18,7 +18,7 @@ export function Comparator() {
             {comparatorCandidates.map((candidate, index) => (
               <th key={candidate.code} scope="col" className="px-4 py-4 align-bottom">
                 <span className="flex flex-col gap-1.5">
-                  <span className="text-[28px] leading-none font-bold text-action tabular-nums">{candidate.score}</span>
+                  <span className="text-[28px] leading-none font-bold text-foreground tabular-nums">{candidate.score}</span>
                   <span className="text-[15px] font-semibold">{candidate.name}</span>
                   <span className="text-[13px] font-normal text-muted-foreground">{candidate.code}</span>
                   <button

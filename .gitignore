@@ -53,3 +53,7 @@ supabase/.temp
 
 # env : seul le modèle sans valeurs est versionné
 !.env.example
+
+# local : config agents tiers + bundle tiers volumineux (non suivis)
+.claude/
+dashboard-icons-main/

@@ -119,11 +119,11 @@ export function ContractsTable() {
               <dl className="flex gap-5 text-sm">
                 <div className="flex flex-col">
                   <dt className="text-xs text-muted-foreground">{contract.party}</dt>
-                  <dd className={signed[0] ? "font-semibold text-action" : "text-action"}>{signed[0] ? "Signé" : "En attente"}</dd>
+                  <dd className={signed[0] ? "font-semibold text-foreground" : "text-foreground"}>{signed[0] ? "Signé" : "En attente"}</dd>
                 </div>
                 <div className="flex flex-col">
                   <dt className="text-xs text-muted-foreground">AfriCand</dt>
-                  <dd className={signed[1] ? "font-semibold text-action" : "text-action"}>{signed[1] ? "Signé" : "En attente"}</dd>
+                  <dd className={signed[1] ? "font-semibold text-foreground" : "text-foreground"}>{signed[1] ? "Signé" : "En attente"}</dd>
                 </div>
               </dl>
               <StatusBadge tone={done ? "success" : "info"}>{done ? "Actif" : "Signatures en cours"}</StatusBadge>
@@ -213,7 +213,7 @@ export function BillingTabs() {
             onClick={() => setTab(label)}
             className={cn(
               "-mb-px h-12 border-b-[3px] px-4 text-base whitespace-nowrap outline-none focus-visible:bg-action-subtle",
-              tab === label ? "border-action font-semibold text-action" : "border-transparent font-medium text-label",
+              tab === label ? "border-action font-semibold text-foreground" : "border-transparent font-medium text-label",
             )}
           >
             {label}

@@ -25,8 +25,8 @@ export function Pills({
             aria-pressed={active}
             onClick={() => onChange(option)}
             className={cn(
-              "h-10 rounded-[10px] border px-[18px] text-[15px] transition-colors duration-(--duration-fast) outline-none focus-visible:ring-3 focus-visible:ring-action/25",
-              active ? "border-action bg-action text-white" : "border-field-border bg-white text-foreground hover:border-action",
+              "h-10 rounded-full border px-5 text-[15px] font-medium transition-colors duration-(--duration-fast) outline-none focus-visible:ring-3 focus-visible:ring-action/25",
+              active ? "border-ref-blue bg-ref-blue text-white" : "border-ref-softborder bg-white text-ref-ink hover:border-ref-blue",
             )}
           >
             {option}
@@ -49,8 +49,8 @@ export function SearchField({
   onChange: (value: string) => void;
 }) {
   return (
-    <label className="flex h-11 w-full min-w-0 shrink-0 items-center gap-2.5 rounded-[10px] bg-secondary px-3.5 focus-within:ring-3 focus-within:ring-action/15">
-      <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="shrink-0 text-label">
+    <label className="flex h-12 w-full min-w-0 shrink-0 items-center gap-2.5 rounded-full bg-ref-chip px-4 focus-within:ring-3 focus-within:ring-action/15">
+      <svg aria-hidden width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" className="shrink-0 text-ref-muted">
         <circle cx="11" cy="11" r="7" />
         <path d="M20 20l-4-4" />
       </svg>
@@ -60,7 +60,7 @@ export function SearchField({
         value={value}
         onChange={(event) => onChange(event.target.value)}
         placeholder={placeholder}
-        className="min-w-0 flex-1 bg-transparent text-[15px] text-foreground outline-none placeholder:text-placeholder"
+        className="min-w-0 flex-1 bg-transparent text-[15px] text-ref-ink outline-none placeholder:text-ref-faint"
       />
     </label>
   );

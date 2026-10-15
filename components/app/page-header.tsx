@@ -47,7 +47,7 @@ export function PageHeader({
 
 export function DemoBadge() {
   return (
-    <span className="rounded-full border border-action px-3 py-1 text-xs font-semibold whitespace-nowrap text-action">
+    <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold whitespace-nowrap text-muted-foreground">
       Données fictives, à titre de démonstration
     </span>
   );

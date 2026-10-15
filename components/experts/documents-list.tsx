@@ -21,7 +21,7 @@ export function DocumentsList() {
         <ul>
           {docs.map((doc) => (
             <li key={doc.name} className="flex flex-wrap items-center gap-3 border-b border-secondary px-5 py-4 last:border-0 sm:px-6">
-              <span aria-hidden className="flex h-10 w-12 shrink-0 items-center justify-center rounded-lg bg-action-subtle text-[11px] font-bold text-action">
+              <span aria-hidden className="flex h-10 w-12 shrink-0 items-center justify-center rounded-lg bg-secondary text-[11px] font-bold text-muted-foreground">
                 {doc.ext}
               </span>
               <div className="flex min-w-[180px] flex-1 flex-col">

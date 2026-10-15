@@ -24,7 +24,7 @@ export function StageTrack({
               className={cn(
                 "truncate",
                 size === "sm" ? "text-xs" : "text-sm",
-                isCurrent ? "font-semibold text-action" : reached ? "text-foreground" : "text-muted-foreground",
+                isCurrent ? "font-semibold text-foreground" : reached ? "text-foreground" : "text-muted-foreground",
               )}
             >
               {stage.label}

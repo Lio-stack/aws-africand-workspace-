@@ -60,7 +60,7 @@ export function MatchingBoard() {
             {rows.map((row) => {
               const on = selected.includes(row.id);
               return (
-                <tr key={row.id} className="border-b border-border last:border-0 hover:bg-[#f8f8f8]">
+                <tr key={row.id} className="border-b border-border last:border-0 hover:bg-muted/60">
                   <td className="py-3.5 pr-4 pl-6">
                     <button
                       type="button"
@@ -76,7 +76,7 @@ export function MatchingBoard() {
                   <td className="px-4 py-3.5">
                     <span className="flex flex-col">
                       {row.id === 1 ? (
-                        <Link href="/admin/consultants/c-1" className="font-semibold hover:text-action">{row.name}</Link>
+                        <Link href="/admin/consultants/c-1" className="font-semibold hover:text-foreground">{row.name}</Link>
                       ) : (
                         <span className="font-semibold">{row.name}</span>
                       )}
@@ -85,7 +85,7 @@ export function MatchingBoard() {
                       </span>
                     </span>
                   </td>
-                  <td className="px-4 py-3.5 text-xl font-bold text-action tabular-nums">{row.score}</td>
+                  <td className="px-4 py-3.5 text-xl font-bold text-foreground tabular-nums">{row.score}</td>
                   {row.pts.map((value, index) => (
                     <td key={matchingCriteria[index].label} className="px-4 py-3.5">
                       <span className="flex flex-col gap-1">

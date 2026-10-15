@@ -27,35 +27,34 @@ export function OpportunitiesList() {
 
   return (
     <>
-      <div className="flex flex-col gap-3 rounded-2xl bg-card p-4 shadow-card sm:p-5">
-        <SearchField label="Rechercher des missions" placeholder="Rechercher des missions..." value={query} onChange={setQuery} />
+      <div className="flex flex-col gap-3 rounded-2xl border border-ref-line bg-white p-4 shadow-[0_1px_2px_rgb(16_24_40/0.05)] sm:p-5">
+        <SearchField label="Rechercher des missions" placeholder="Rechercher une mission..." value={query} onChange={setQuery} />
         <Pills label="Filtrer les opportunités" options={filters} value={filter} onChange={setFilter} />
       </div>
-      <p className="text-[15px] text-label" aria-live="polite">
-        {list.length} opportunité{list.length > 1 ? "s" : ""}
+      <p className="text-[15px] text-ref-ink" aria-live="polite">
+        <strong className="tabular-nums">{list.length} résultat{list.length > 1 ? "s" : ""}</strong> <span className="text-ref-muted">· Pertinence</span>
       </p>
       {list.length === 0 ? (
-        <div className="rounded-2xl bg-card shadow-card">
+        <div className="rounded-2xl border border-ref-line bg-white shadow-[0_1px_2px_rgb(16_24_40/0.05)]">
           <EmptyState title="Aucune opportunité" description="Modifiez votre recherche ou vos filtres. Les nouveaux besoins qualifiés apparaissent ici." />
         </div>
       ) : (
-        <ul className="flex flex-col gap-4">
+        <ul className="overflow-hidden rounded-2xl border border-ref-line bg-white shadow-[0_1px_2px_rgb(16_24_40/0.05)]">
           {list.map((opportunity) => {
             const sent = interests.includes(opportunity.id);
             return (
-              <li key={opportunity.id} className="flex flex-col gap-4 rounded-2xl bg-card p-5 shadow-card sm:flex-row sm:p-6">
-                <div className="flex min-w-0 flex-1 flex-col gap-1.5">
-                  <h2 className="text-lg font-semibold">{opportunity.title}</h2>
-                  <p className="text-[15px] text-muted-foreground">{opportunity.desc}</p>
-                  <p className="text-sm text-label">{opportunity.meta}</p>
-                  <div className="flex flex-wrap gap-1.5 pt-1">
+              <li key={opportunity.id} className="flex flex-col gap-3 border-b border-ref-line px-5 py-5 last:border-0 sm:px-6">
+                <div className="flex items-start justify-between gap-3">
+                  <h2 className="text-[17px] font-bold text-ref-ink">{opportunity.title}</h2>
+                  <span className="shrink-0 text-[13px] text-ref-muted">{opportunity.when}</span>
+                </div>
+                <p className="max-w-2xl text-[15px] text-ref-muted">{opportunity.desc}</p>
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <div className="flex flex-wrap gap-1.5">
                     {opportunity.tags.map((tag) => (
                       <Tag key={tag}>{tag}</Tag>
                     ))}
                   </div>
-                </div>
-                <div className="flex shrink-0 items-center justify-between gap-3 sm:flex-col sm:items-end">
-                  <span className="text-[13px] text-muted-foreground">{opportunity.when}</span>
                   <button
                     type="button"
                     aria-pressed={sent}
@@ -64,8 +63,8 @@ export function OpportunitiesList() {
                       if (!sent) toast("Intérêt noté (démonstration)", { description: "Rien n'est transmis à AfriCand pour l'instant." });
                     }}
                     className={cn(
-                      "h-10 rounded-[10px] border border-action px-4 text-sm font-semibold outline-none focus-visible:ring-3 focus-visible:ring-action/25",
-                      sent ? "bg-action text-white" : "bg-white text-action",
+                      "h-10 shrink-0 rounded-lg border border-ref-blue px-4 text-sm font-semibold outline-none focus-visible:ring-3 focus-visible:ring-action/25",
+                      sent ? "bg-ref-blue text-white" : "bg-white text-ref-blue",
                     )}
                   >
                     {sent ? "Intérêt envoyé" : "Manifester mon intérêt"}

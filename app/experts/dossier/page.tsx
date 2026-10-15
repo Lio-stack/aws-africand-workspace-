@@ -47,7 +47,7 @@ export default function DossierPage() {
           <ul aria-label="Sections du dossier" className="overflow-hidden rounded-2xl bg-card shadow-card">
             {dossierRows.map((row) => (
               <li key={row.label} className="border-b border-secondary last:border-0">
-                <Link href={row.href} className="flex items-center gap-4 px-6 py-4 hover:bg-[#f8f8f8]">
+                <Link href={row.href} className="flex items-center gap-4 px-6 py-4 hover:bg-muted/60">
                   <span className="flex flex-1 flex-col gap-0.5">
                     <span className="text-base font-semibold text-foreground">{row.label}</span>
                     <span className="text-sm text-muted-foreground">{row.sub}</span>
@@ -61,14 +61,14 @@ export default function DossierPage() {
         </div>
         <aside aria-labelledby="vue-entreprise" className="overflow-hidden rounded-2xl border-2 border-action bg-card">
           <div className="flex items-center gap-2.5 bg-action-subtle px-5 py-3.5">
-            <Eye aria-hidden className="size-5 text-action" />
+            <Eye aria-hidden className="size-5 text-muted-foreground" />
             <h2 id="vue-entreprise" className="text-[15px] font-semibold text-primary">
               Ce que voient les entreprises
             </h2>
           </div>
           <div className="flex flex-col gap-4 p-5">
             <div className="flex items-center gap-3.5">
-              <span aria-hidden className="flex size-16 shrink-0 items-center justify-center rounded-full bg-[#e4e4e4]">
+              <span aria-hidden className="flex size-16 shrink-0 items-center justify-center rounded-full bg-ref-ice">
                 <UserRound className="size-7 text-muted-foreground" />
               </span>
               <div className="flex flex-col gap-0.5">

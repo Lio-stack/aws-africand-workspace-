@@ -104,7 +104,7 @@ export function AuditLog() {
           </thead>
           <tbody>
             {rows.map((entry) => (
-              <tr key={`${entry.t}-${entry.act}`} className="border-b border-border last:border-0 hover:bg-[#f8f8f8]">
+              <tr key={`${entry.t}-${entry.act}`} className="border-b border-border last:border-0 hover:bg-muted/60">
                 <td className="py-3.5 pr-4 pl-6 font-mono text-[13px] whitespace-nowrap">{entry.t}</td>
                 <td className="px-4 py-3.5 whitespace-nowrap">{entry.who}</td>
                 <td className="px-4 py-3.5">
@@ -140,7 +140,7 @@ export function UsersAndRoles() {
             onClick={() => setTab(label)}
             className={cn(
               "-mb-px h-12 border-b-[3px] px-4 text-base whitespace-nowrap outline-none focus-visible:bg-action-subtle",
-              tab === label ? "border-action font-semibold text-action" : "border-transparent font-medium text-label",
+              tab === label ? "border-action font-semibold text-foreground" : "border-transparent font-medium text-label",
             )}
           >
             {label}
@@ -166,7 +166,7 @@ export function UsersAndRoles() {
                   onClick={() => setSuspended(off ? suspended.filter((id) => id !== user.id) : [...suspended, user.id])}
                   className={cn(
                     "h-9 rounded-[10px] border bg-white px-3.5 text-sm",
-                    off ? "border-action text-action" : "border-[#f1b8b8] text-destructive",
+                    off ? "border-action bg-white text-action" : "border-[#f1b8b8] text-destructive",
                   )}
                 >
                   {off ? "Réactiver" : "Suspendre"}
@@ -194,7 +194,7 @@ export function UsersAndRoles() {
                   <th scope="row" className="py-3 pr-4 pl-6 font-normal">{row.label}</th>
                   {row.allowed.map((allowed, index) => (
                     <td key={roleNames[index]} className="px-4 py-3 text-center">
-                      <span aria-label={allowed ? "Autorisé" : "Non autorisé"} className={allowed ? "text-base font-bold text-action" : "text-base text-[#9aa0a6]"}>
+                      <span aria-label={allowed ? "Autorisé" : "Non autorisé"} className={allowed ? "text-base font-bold text-foreground" : "text-base text-[#9aa0a6]"}>
                         {allowed ? "✓" : "·"}
                       </span>
                     </td>

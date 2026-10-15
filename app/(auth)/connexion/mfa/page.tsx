@@ -15,7 +15,7 @@ export default function MfaPage() {
         <span className="rounded-full bg-primary px-2.5 py-1 text-xs font-semibold text-white">Équipe AfriCand</span>
       </div>
       <span aria-hidden className="flex size-14 items-center justify-center rounded-xl bg-action-subtle">
-        <ShieldCheck className="size-7 text-action" />
+        <ShieldCheck className="size-7 text-muted-foreground" />
       </span>
       <div className="flex flex-col gap-1.5">
         <h1 className="text-[26px] leading-tight font-bold tracking-tight">Vérification en deux étapes</h1>

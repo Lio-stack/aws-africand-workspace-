@@ -53,7 +53,7 @@ export function MfaForm() {
         Vérifier
       </Button>
       <div className="flex flex-wrap items-center justify-between gap-2 text-sm">
-        <button type="button" onClick={() => toast("Codes de secours disponibles en phase 3")} className="text-action hover:text-primary">
+        <button type="button" onClick={() => toast("Codes de secours disponibles en phase 3")} className="text-foreground">
           Utiliser un code de secours
         </button>
         <Link href="/connexion" className="text-muted-foreground hover:text-foreground">

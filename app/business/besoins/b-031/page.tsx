@@ -48,25 +48,25 @@ export default function BesoinDetailPage() {
             {needDetail.proposed.map((profile) => (
               <li key={profile.code} className="border-b border-border last:border-0">
                 <div className="flex items-center gap-3 px-5 py-4 sm:px-6">
-                  <span aria-hidden className="flex size-11 shrink-0 items-center justify-center rounded-full bg-[#e4e4e4]">
+                  <span aria-hidden className="flex size-11 shrink-0 items-center justify-center rounded-full bg-ref-ice">
                     <UserRound className="size-5 text-muted-foreground" />
                   </span>
                   <span className="flex min-w-0 flex-1 flex-col">
                     {profile.code === "Expert A-1042" ? (
-                      <Link href="/business/profils/a-1042" className="text-[15px] font-semibold hover:text-action">{profile.code}</Link>
+                      <Link href="/business/profils/a-1042" className="text-[15px] font-semibold hover:text-foreground">{profile.code}</Link>
                     ) : (
                       <span className="text-[15px] font-semibold">{profile.code}</span>
                     )}
                     <span className="text-[13px] text-muted-foreground">{profile.title}</span>
                   </span>
-                  <span className="text-xl font-bold text-action tabular-nums" aria-label={`Score ${profile.score} sur 100`}>
+                  <span className="text-xl font-bold text-foreground tabular-nums" aria-label={`Score ${profile.score} sur 100`}>
                     {profile.score}
                   </span>
                 </div>
               </li>
             ))}
           </ul>
-          <Link href="/business/shortlists" className="border-t border-border px-5 py-4 text-[15px] font-semibold text-action hover:text-primary sm:px-6">
+          <Link href="/business/shortlists" className="border-t border-border px-5 py-4 text-[15px] font-semibold text-foreground sm:px-6">
             Voir la shortlist (3)
           </Link>
         </Panel>

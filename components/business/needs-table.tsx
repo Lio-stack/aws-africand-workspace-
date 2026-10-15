@@ -33,7 +33,7 @@ export function NeedsTable() {
               <li key={need.ref} className="flex flex-wrap items-center gap-x-6 gap-y-2 border-b border-secondary px-5 py-4 last:border-0 sm:px-6">
                 <div className="flex min-w-[220px] flex-1 flex-col">
                   {need.ref === "[B-031]" ? (
-                    <Link href="/business/besoins/b-031" className="text-[15px] font-semibold text-foreground hover:text-action">
+                    <Link href="/business/besoins/b-031" className="text-[15px] font-semibold text-foreground hover:text-foreground">
                       {need.title}
                     </Link>
                   ) : (
@@ -46,7 +46,7 @@ export function NeedsTable() {
                 <span className="w-44 text-sm text-label">{need.profiles}</span>
                 <StatusBadge tone={needTone[need.status]}>{need.status}</StatusBadge>
                 {need.ref === "[B-031]" ? (
-                  <Link href="/business/besoins/b-031" className="text-sm font-semibold text-action hover:text-primary">
+                  <Link href="/business/besoins/b-031" className="text-sm font-semibold text-foreground">
                     Ouvrir<span className="sr-only"> {need.title}</span>
                   </Link>
                 ) : (

@@ -4,7 +4,7 @@ export type StatusTone = "neutral" | "info" | "success" | "warning" | "danger";
 
 const tones: Record<StatusTone, string> = {
   neutral: "bg-secondary text-label",
-  info: "bg-action-subtle text-action",
+  info: "bg-secondary text-foreground",
   success: "bg-success/12 text-success",
   warning: "bg-warning/15 text-[#8a4b00]",
   danger: "bg-destructive/10 text-destructive",

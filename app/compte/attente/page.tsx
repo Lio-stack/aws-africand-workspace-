@@ -20,7 +20,7 @@ export default function AttentePage() {
     <AccessCard width="max-w-[560px]">
       <AcwLogo />
       <span aria-hidden className="flex size-16 items-center justify-center rounded-full border border-action">
-        <Clock className="size-7 text-action" />
+        <Clock className="size-7 text-muted-foreground" />
       </span>
       <div className="flex flex-col gap-2">
         <h1 className="text-[28px] leading-tight font-bold tracking-tight">Votre compte est en cours de validation</h1>
@@ -49,7 +49,7 @@ export default function AttentePage() {
             </span>
             <span className={cn("flex-1 text-[15px]", step.state === "next" ? "text-muted-foreground" : "font-semibold")}>{step.label}</span>
             {step.state === "current" ? (
-              <span className="rounded-full border border-action px-2 py-0.5 text-[13px] font-semibold text-action">En cours</span>
+              <span className="rounded-full border border-border px-2 py-0.5 text-[13px] font-semibold text-foreground">En cours</span>
             ) : (
               <span className="text-[13px] text-muted-foreground">{step.state === "done" ? "Terminé" : "À venir"}</span>
             )}
@@ -66,7 +66,7 @@ export default function AttentePage() {
       </div>
       <p className="text-sm text-muted-foreground">
         Une question ? Écrivez à{" "}
-        <a href="mailto:contact@africand.com" className="text-action hover:text-primary">
+        <a href="mailto:contact@africand.com" className="text-foreground">
           contact@africand.com
         </a>
       </p>

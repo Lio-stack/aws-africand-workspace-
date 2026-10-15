@@ -18,7 +18,7 @@ export default function PaiementsPage() {
       <PageHeader
         breadcrumb={["ACW Experts", "Paiements"]}
         title="Paiements"
-        description="Montants en FCFA."
+        description="Versements de votre part par AfriCand, par mission. Vous ne facturez pas le client. Montants en FCFA."
         actions={
           <DemoAction variant="outline" className="h-10 rounded-[10px] border-field-border px-4">
             Coordonnées de paiement

@@ -26,7 +26,7 @@ export function DocumentsTabs() {
             onClick={() => setTab(label)}
             className={cn(
               "-mb-px h-12 border-b-[3px] px-4 text-base outline-none focus-visible:bg-action-subtle",
-              tab === label ? "border-action font-semibold text-action" : "border-transparent font-medium text-label",
+              tab === label ? "border-action font-semibold text-foreground" : "border-transparent font-medium text-label",
             )}
           >
             {label}

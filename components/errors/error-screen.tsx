@@ -4,8 +4,8 @@ import { AcwLogo } from "@/components/auth/access-layout";
 import { cn } from "@/lib/utils";
 
 const variants = {
-  "403": { icon: Lock, iconClass: "bg-white text-action ring-1 ring-border", title: "Accès non autorisé" },
-  "404": { icon: SearchX, iconClass: "bg-action-subtle text-action", title: "Page introuvable" },
+  "403": { icon: Lock, iconClass: "bg-white text-muted-foreground ring-1 ring-border", title: "Accès non autorisé" },
+  "404": { icon: SearchX, iconClass: "bg-secondary text-muted-foreground", title: "Page introuvable" },
   "500": { icon: TriangleAlert, iconClass: "bg-destructive/10 text-destructive", title: "Une erreur est survenue" },
 } as const;
 

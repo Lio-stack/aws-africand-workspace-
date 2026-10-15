@@ -133,8 +133,8 @@ export function AccountTypeTabs({ current }: { current: "consultant" | "entrepri
 
 const conditions = (
   <>
-    J&apos;accepte les <span className="text-action">Conditions d&apos;utilisation</span> et la{" "}
-    <span className="text-action">Politique de confidentialité</span>
+    J&apos;accepte les <span className="text-foreground">Conditions d&apos;utilisation</span> et la{" "}
+    <span className="text-foreground">Politique de confidentialité</span>
   </>
 );
 

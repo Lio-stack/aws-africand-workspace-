@@ -51,7 +51,7 @@ export function CandidatesQueue() {
               <li key={candidate.id} className="flex flex-wrap items-center gap-x-5 gap-y-3 border-b border-secondary px-5 py-4 last:border-0 sm:px-6">
                 <span className="flex min-w-[180px] flex-1 flex-col">
                   {candidate.id === 1 ? (
-                    <Link href="/admin/consultants/c-1" className="text-[15px] font-semibold hover:text-action">{candidate.name}</Link>
+                    <Link href="/admin/consultants/c-1" className="text-[15px] font-semibold hover:text-foreground">{candidate.name}</Link>
                   ) : (
                     <span className="text-[15px] font-semibold">{candidate.name}</span>
                   )}
@@ -77,7 +77,7 @@ export function CandidatesQueue() {
                   <button
                     type="button"
                     onClick={() => setDecisions({ ...decisions, [candidate.id]: candidate.status })}
-                    className="text-sm font-semibold text-action hover:text-primary"
+                    className="text-sm font-semibold text-foreground"
                   >
                     Annuler
                   </button>
@@ -145,7 +145,7 @@ export function CompaniesQueue() {
                 </button>
               </div>
             ) : (
-              <button type="button" onClick={() => setDecisions({ ...decisions, [company.id]: "wait" })} className="self-start text-sm font-semibold text-action hover:text-primary">
+              <button type="button" onClick={() => setDecisions({ ...decisions, [company.id]: "wait" })} className="self-start text-sm font-semibold text-foreground">
                 Annuler la décision
               </button>
             )}
@@ -212,7 +212,7 @@ export function IntroductionsApproval() {
                 onAccept={() => setDecisions({ ...decisions, [intro.id]: "ok" })}
               />
             ) : (
-              <button type="button" onClick={() => setDecisions({ ...decisions, [intro.id]: "wait" })} className="self-start text-sm font-semibold text-action hover:text-primary">
+              <button type="button" onClick={() => setDecisions({ ...decisions, [intro.id]: "wait" })} className="self-start text-sm font-semibold text-foreground">
                 Annuler la décision
               </button>
             )}

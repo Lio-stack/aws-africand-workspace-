@@ -65,6 +65,25 @@
   --color-nav-indicator: var(--acw-blue-300);
   --color-navy-800: var(--acw-navy-800);
   --color-navy-950: var(--acw-navy-950);
+  /* Référence web (blanc / bleu / gris) — source unique, plus de hex en dur. */
+  /* Bleu ACW officiel (Figma Signal W + Profil consultant) : #0B5CFF. */
+  --color-ref-blue: #0b5cff;
+  --color-ref-blue-hover: #0848c7;
+  --color-ref-tint: #e8f0ff;
+  --color-ref-ink: #0f1b2d;
+  --color-ref-muted: #5b6577;
+  --color-ref-faint: #6b7586;
+  --color-ref-line: #e3e7ee;
+  --color-ref-chip: #eef1f5;
+  --color-ref-ice: #e8f0ff;
+  --color-ref-softborder: #e0e3e7;
+  --color-brand-mark: #004ffd;
+  --color-brand-navy: #002c74;
+  --color-ref-deep: #0a1838;
+  --color-ref-success: #0e6b3b;
+  --color-ref-success-bg: #e3f5ea;
+  --color-ref-warn: #8a4b00;
+  --color-ref-warn-bg: #fff3dc;
   --shadow-card: 0 0 0 1px rgb(5 28 44 / 0.08), 0 24px 48px -34px rgb(5 28 44 / 0.35);
 }
 

@@ -30,7 +30,7 @@ export function NeedQualification() {
               onClick={() => setSelected(index)}
               className={cn(
                 "flex w-full flex-col items-start gap-0.5 border-b border-secondary px-[18px] py-3.5 text-left last:border-0",
-                selected === index ? "bg-[#f4f7fd] shadow-[inset_3px_0_0_var(--acw-blue-600)]" : "bg-white hover:bg-[#f8f8f8]",
+                selected === index ? "bg-[#f4f7fd] shadow-[inset_3px_0_0_var(--acw-blue-600)]" : "bg-white hover:bg-muted/60",
               )}
             >
               <span className="text-xs text-muted-foreground">

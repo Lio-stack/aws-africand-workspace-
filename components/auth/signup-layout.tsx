@@ -41,7 +41,7 @@ export function SignupLayout({
           {children}
           <p className="text-center text-[15px] text-label">
             Vous avez déjà un compte ?{" "}
-            <Link href="/connexion" className="text-action hover:text-primary">
+            <Link href="/connexion" className="text-foreground">
               Se connecter
             </Link>
           </p>

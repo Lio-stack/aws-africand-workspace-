@@ -37,7 +37,7 @@ export function CompanyForm() {
               readOnly={!editing}
               className={cn(
                 "h-[46px] rounded-[10px] border px-3.5 text-[15px] font-normal text-foreground outline-none focus-visible:ring-3 focus-visible:ring-action/15",
-                editing ? "border-action bg-white" : "border-border bg-[#f8f8f8]",
+                editing ? "border-action bg-white" : "border-border bg-muted",
               )}
             />
           </label>
@@ -50,7 +50,7 @@ export function CompanyForm() {
             defaultValue="[Présentation de l'entreprise : activité, marchés, effectifs, ambitions.]"
             className={cn(
               "rounded-[10px] border px-3.5 py-3 text-[15px] font-normal text-foreground outline-none focus-visible:ring-3 focus-visible:ring-action/15",
-              editing ? "border-action bg-white" : "border-border bg-[#f8f8f8]",
+              editing ? "border-action bg-white" : "border-border bg-muted",
             )}
           />
         </label>

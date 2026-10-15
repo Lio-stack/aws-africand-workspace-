@@ -30,7 +30,7 @@ export function Panel({
             {title}
           </h2>
           {action && typeof action === "object" && "href" in action ? (
-            <Link href={action.href} className="text-[15px] font-semibold text-action hover:text-primary">
+            <Link href={action.href} className="text-[15px] font-semibold text-foreground">
               {action.label}
             </Link>
           ) : (
@@ -61,7 +61,7 @@ export function KpiCard({
       <span className="text-sm text-muted-foreground">{label}</span>
       <span className="text-[30px] leading-tight font-bold tracking-tight text-foreground tabular-nums">{value}</span>
       {sub ? <span className="text-sm text-muted-foreground">{sub}</span> : null}
-      {cta ? <span className="text-sm font-semibold text-action">{cta}</span> : null}
+      {cta ? <span className="text-sm font-semibold text-foreground">{cta}</span> : null}
     </>
   );
   const className =

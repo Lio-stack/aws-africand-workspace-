@@ -10,48 +10,72 @@ export function SidebarNav({
   groups,
   spaceRoot,
   onNavigate,
+  collapsed = false,
 }: {
   groups: NavGroup[];
   spaceRoot: string;
   onNavigate?: () => void;
+  collapsed?: boolean;
 }) {
   const pathname = usePathname();
   // Navigation groupée (Administration) : éléments compacts et compteurs en pastilles (écran 03).
   const compact = groups.some((group) => group.title);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-4">
       {groups.map((group, index) => (
-        <div key={group.title ?? index} className="flex flex-col gap-1">
-          {group.title ? (
-            <span className="px-3 pb-1 text-[11px] font-semibold tracking-[0.08em] text-white/50 uppercase">
+        <div key={group.title ?? index} className="flex flex-col gap-0.5">
+          {group.title && !collapsed ? (
+            <span className="px-3 pb-0.5 text-[11px] font-semibold tracking-[0.08em] text-ref-muted uppercase">
               {group.title}
             </span>
           ) : null}
           {group.items.map((item) => {
             const active = isActive(pathname, item.href, spaceRoot);
+            const Icon = item.icon;
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={onNavigate}
                 aria-current={active ? "page" : undefined}
+                title={collapsed ? item.label : undefined}
+                aria-label={collapsed ? item.label : undefined}
                 className={cn(
-                  "relative flex items-center gap-2 rounded-[10px] px-3 transition-colors duration-(--duration-fast) outline-none focus-visible:ring-2 focus-visible:ring-nav-indicator",
-                  compact ? "h-10 text-sm" : "h-11 text-[15px]",
+                  "relative flex items-center gap-3 rounded-xl transition-colors duration-(--duration-fast) outline-none focus-visible:ring-2 focus-visible:ring-ref-blue/40",
+                  collapsed
+                    ? "size-11 justify-center"
+                    : compact
+                      ? "h-9 px-3 text-sm"
+                      : "h-10 px-3 text-[15px]",
                   active
-                    ? "bg-white/12 font-semibold text-white before:absolute before:inset-y-2.5 before:left-0 before:w-[3px] before:rounded-r-[3px] before:bg-nav-indicator"
-                    : "font-medium text-white/74 hover:bg-white/7 hover:text-white",
+                    ? "bg-ref-chip font-semibold text-ref-ink"
+                    : "font-medium text-ref-muted hover:bg-black/[0.04] hover:text-ref-ink",
                 )}
               >
-                <span className="flex-1 truncate">{item.label}</span>
-                {item.badge ? (
+                <Icon aria-hidden className="size-5 shrink-0" strokeWidth={1.75} />
+                {collapsed ? null : <span className="min-w-0 flex-1 truncate">{item.label}</span>}
+                {item.badge && !collapsed ? (
                   <span
                     className={cn(
                       "text-xs tabular-nums",
-                      compact ? "min-w-5 rounded-full bg-white px-1.5 py-px text-center font-semibold text-foreground" : "text-white/55",
+                      compact
+                        ? "min-w-5 rounded-full px-1.5 py-px text-center font-semibold tabular-nums"
+                        : "text-ref-muted",
+                      compact && (active ? "bg-ref-ink text-white" : "bg-ref-chip text-ref-ink"),
+                      !compact && active && "text-ref-ink",
                     )}
                     aria-label={`${item.badge} en attente`}
+                  >
+                    {item.badge}
+                  </span>
+                ) : null}
+                {item.badge && collapsed ? (
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute top-1 right-1 flex size-4 items-center justify-center rounded-full bg-ref-ink text-[10px] font-bold text-white tabular-nums",
+                    )}
                   >
                     {item.badge}
                   </span>

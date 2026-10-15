@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Bundle tiers non suivi (collection d'icônes de marques, 400 Mo+).
+    "dashboard-icons-main/**",
   ]),
 ]);
 

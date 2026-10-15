@@ -51,7 +51,7 @@ export function ProposalViewer() {
             <div key={section.title} className={cn("flex flex-col gap-1.5", section.changed && "border-l-[3px] border-action pl-3.5")}>
               <h3 className="flex items-center gap-2 text-base font-semibold">
                 {section.title}
-                {section.changed ? <span className="rounded-full bg-action-subtle px-2 py-0.5 text-[11px] font-semibold text-action">Modifié en v2</span> : null}
+                {section.changed ? <span className="rounded-full bg-secondary px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">Modifié en v2</span> : null}
               </h3>
               <p className="text-[15px] leading-relaxed text-label">{section.text}</p>
             </div>
@@ -73,7 +73,7 @@ export function ProposalViewer() {
             <button
               type="button"
               onClick={() => toast("Téléchargement indisponible", { description: "Les documents seront servis par URL signée (phase 8)." })}
-              className="text-[15px] font-semibold text-action hover:text-primary"
+              className="text-[15px] font-semibold text-foreground"
             >
               Télécharger en PDF
             </button>

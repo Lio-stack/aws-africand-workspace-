@@ -19,7 +19,7 @@ export default function EntreprisePage() {
           <h2 className="text-2xl font-bold">{demoCompany.name}</h2>
           <span className="text-[15px] text-label">Agro-industrie · Abidjan, Côte d&apos;Ivoire</span>
           <div className="flex flex-wrap gap-2 pt-1">
-            <StatusBadge tone="success">Entreprise vérifiée par AfriCand</StatusBadge>
+            <StatusBadge tone="neutral">Entreprise vérifiée par AfriCand</StatusBadge>
             <StatusBadge>PME</StatusBadge>
           </div>
         </div>
@@ -36,7 +36,7 @@ export default function EntreprisePage() {
                 <span className="text-sm text-muted-foreground">Directeur général</span>
               </span>
             </div>
-            <Link href="/business/membres" className="text-[15px] font-semibold text-action hover:text-primary">
+            <Link href="/business/membres" className="text-[15px] font-semibold text-foreground">
               Gérer les membres
             </Link>
           </section>

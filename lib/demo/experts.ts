@@ -251,8 +251,8 @@ export const paymentSummary = [
 ];
 
 export const paymentHistory = [
-  { ref: "[F-2026-034]", mission: "Étude de stratégie de croissance", date: "[DATE]", amount: "[MONTANT]", status: "En validation", tone: "info" },
-  { ref: "[F-2026-031]", mission: "Étude de stratégie de croissance", date: "[DATE]", amount: "[MONTANT]", status: "Payé", tone: "success" },
-  { ref: "[F-2026-022]", mission: "Due diligence financière", date: "[DATE]", amount: "[MONTANT]", status: "Payé", tone: "success" },
-  { ref: "[F-2026-015]", mission: "Analyse d'entrée de marché", date: "[DATE]", amount: "[MONTANT]", status: "Payé", tone: "success" },
+  { ref: "[RV-2026-034]", mission: "Étude de stratégie de croissance", date: "[DATE]", amount: "[MONTANT]", status: "En validation", tone: "info" },
+  { ref: "[RV-2026-031]", mission: "Étude de stratégie de croissance", date: "[DATE]", amount: "[MONTANT]", status: "Payé", tone: "success" },
+  { ref: "[RV-2026-022]", mission: "Due diligence financière", date: "[DATE]", amount: "[MONTANT]", status: "Payé", tone: "success" },
+  { ref: "[RV-2026-015]", mission: "Analyse d'entrée de marché", date: "[DATE]", amount: "[MONTANT]", status: "Payé", tone: "success" },
 ] as const;

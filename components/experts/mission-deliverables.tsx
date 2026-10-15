@@ -32,7 +32,7 @@ export function MissionDeliverables() {
           ))}
           <div className="flex flex-col gap-2">
             <dt className="flex justify-between text-[13px] text-muted-foreground">
-              Avancement <span className="font-semibold text-action">{progress} %</span>
+              Avancement <span className="font-semibold text-foreground">{progress} %</span>
             </dt>
             <dd>
               <Meter value={progress} label="Avancement de la mission" />
