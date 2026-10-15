@@ -4,9 +4,10 @@
 Premium, sobre, international. Clarté > décoration. Hiérarchie forte, densité maîtrisée, français/anglais prêts (i18n).
 
 ## 2. Tokens (Tailwind + CSS vars)
-- Couleurs : neutres (slate) dominants + 1 accent profond (ex. bleu nuit `#0F2A44`) + 1 accent or sobre pour premium ; succès/avertissement/erreur sémantiques. Contraste AA min.
-- Typo : Inter (texte) + serif ou grotesque sobre pour titres si besoin. Échelle 12/14/16/20/24/32. Interlignage 1.5 texte.
-- Espacements : base 4px, rayons 8-12px, ombres discrètes.
+Source : `app/styles/tokens.css`, alignée sur le prototype ACW (voir §7).
+- Couleurs : bleu nuit `#051C2C` (navigation, actions principales ; dégradé de sidebar `#0B2D45` → `#051C2C` → `#03131E`), bleu d'action `#1A5FD0` (liens, focus, éléments actifs ; fond doux `#E8EFFB`), neutres `#111111` / `#434343` / `#626262` / `#C9C9C9` / `#E6E6E6` / `#F5F5F5` ; erreur `#B42318`, pastille de notification `#E5242A`. Contraste AA min.
+- Typo : Inter seule. Échelle 12/14/16/20/24/32 (titres d'écran 30). Interlignage 1.5 texte.
+- Espacements : base 4px, rayons 10px (contrôles) et 16px (cartes), contrôles de formulaire 52px, ombres discrètes.
 - Thème : clair par défaut, dark phase 2.
 
 ## 3. Navigation
@@ -24,5 +25,9 @@ Chargement : skeletons. Vide : illustration sobre + CTA. Erreur : message action
 - Clavier complet, focus visible, aria sur dialogs/menus, contraste AA, `lang` dynamique.
 - Mobile-first : tableaux → cartes, filtres en drawer, touch 44px.
 
-## 7. Figma (si disponible)
-1 fichier : tokens, composants base, cartes/tables métier, 3 dashboards. Les specs Figma font foi avant code. Pas de génération massive de pages avant validation tokens.
+## 7. Référence visuelle
+Le prototype HTML ACW (`ACW-prototype-web-inzone_6.html`, 50 écrans) fait foi pour la direction visuelle. Écarts volontaires avec le prototype, pour respecter les specs :
+- Connexion : e-mail + code à usage unique seulement. Les boutons Google / LinkedIn du prototype attendent une décision (voir `decisions-architecture.md`).
+- Profils anonymisés côté Business : pas de ville du consultant (donnée personnelle), au plus le pays ou la région.
+
+Chaque écran est développé, vérifié puis validé avant le suivant. Figma reste utilisable si un fichier est fourni.

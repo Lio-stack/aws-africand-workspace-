@@ -3,7 +3,7 @@ import { Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({
-  variable: "--font-sans",
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AfriCand Work Space",
-  description: "Plateforme privée AfriCand : entreprises validées et consultants seniors qualifiés.",
+  title: { default: "ACW", template: "%s · ACW" },
+  description: "Plateforme privée ACW : entreprises validées et consultants seniors qualifiés.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

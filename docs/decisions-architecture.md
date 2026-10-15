@@ -24,3 +24,4 @@ Statut : retenu (architecture) ; dépendances installées étape par étape sur 
 3. MFA : TOTP vs SMS.
 4. i18n initial : FR seul vs FR/EN.
 5. Facturation : suivi manuel MVP vs Stripe/paiement mobile post-MVP.
+6. Connexion Google / LinkedIn (présente dans le prototype ACW) : en plus de l'e-mail + OTP, ou non. Impacts : fournisseurs OAuth Supabase, rattachement aux comptes validés, MFA admin.

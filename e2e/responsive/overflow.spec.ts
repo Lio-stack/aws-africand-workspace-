@@ -1,7 +1,7 @@
 import { expect, test } from "../fixtures";
 
 // Pages vérifiées à chaque viewport (compléter au fil des phases).
-const routes = ["/"];
+const routes = ["/connexion"];
 
 for (const route of routes) {
   test(`aucun débordement horizontal sur ${route}`, async ({ page }) => {

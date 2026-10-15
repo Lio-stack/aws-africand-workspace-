@@ -1,34 +1,35 @@
 /*
- * AWS — Tokens de design (source unique CSS).
- * Voir docs/design-system.md et docs/motion-design.md.
- * Les valeurs marquées PROVISOIRE seront remplacées par les variables Figma.
+ * ACW — Tokens de design (source unique CSS).
+ * Référence visuelle : prototype ACW (ACW-prototype-web-inzone_6.html), voir docs/design-system.md.
  * Les tokens motion sont dupliqués dans lib/motion/tokens.ts (test de parité Vitest).
  */
 
 :root {
-  /* Marque */
-  --aws-navy-900: #0f2a44; /* bleu nuit, accent principal */
-  --aws-navy-700: #1b4167; /* PROVISOIRE : survol / états */
-  --aws-gold-500: #b08d57; /* PROVISOIRE : or sobre, décoratif uniquement (pas de texte) */
-  --aws-gold-700: #7a5f35; /* PROVISOIRE : or pour texte, contraste à vérifier */
+  /* Marque : bleu nuit (navigation, actions principales) */
+  --acw-navy-950: #03131e;
+  --acw-navy-900: #051c2c;
+  --acw-navy-800: #0b2d45;
 
-  /* Neutres slate (valeurs Tailwind v4) */
-  --aws-slate-50: oklch(0.984 0.003 247.858);
-  --aws-slate-100: oklch(0.968 0.007 247.896);
-  --aws-slate-200: oklch(0.929 0.013 255.508);
-  --aws-slate-300: oklch(0.869 0.022 252.894);
-  --aws-slate-400: oklch(0.704 0.04 256.788);
-  --aws-slate-500: oklch(0.554 0.046 257.417);
-  --aws-slate-600: oklch(0.446 0.043 257.281);
-  --aws-slate-700: oklch(0.372 0.044 257.287);
-  --aws-slate-900: oklch(0.208 0.042 265.755);
-  --aws-slate-950: oklch(0.129 0.042 264.695);
+  /* Bleu d'action (liens, focus, éléments actifs) */
+  --acw-blue-600: #1a5fd0;
+  --acw-blue-50: #e8effb;
+
+  /* Neutres */
+  --acw-gray-950: #111111; /* texte principal */
+  --acw-gray-700: #434343; /* libellés */
+  --acw-gray-600: #626262; /* texte secondaire */
+  --acw-gray-400: #8f8f8f; /* placeholders */
+  --acw-gray-300: #c9c9c9; /* bordures de champs */
+  --acw-gray-200: #e6e6e6; /* séparateurs */
+  --acw-gray-100: #f2f2f2; /* surfaces secondaires */
+  --acw-gray-50: #f5f5f5; /* fond d'application */
 
   /* Sémantique d'état */
   --success: oklch(0.527 0.154 150.069);
   --success-foreground: oklch(0.985 0 0);
   --warning: oklch(0.666 0.179 58.318);
   --warning-foreground: oklch(0.205 0 0);
+  --notification: #e5242a;
 
   /* Motion — durées */
   --duration-instant: 100ms;
@@ -54,7 +55,12 @@
   --color-success-foreground: var(--success-foreground);
   --color-warning: var(--warning);
   --color-warning-foreground: var(--warning-foreground);
-  --color-brand-gold: var(--aws-gold-500);
+  --color-action: var(--acw-blue-600);
+  --color-action-subtle: var(--acw-blue-50);
+  --color-notification: var(--notification);
+  --color-field-border: var(--acw-gray-300);
+  --color-placeholder: var(--acw-gray-400);
+  --color-label: var(--acw-gray-700);
 }
 
 /* Réduction des animations : neutralise transitions et animations CSS. */
